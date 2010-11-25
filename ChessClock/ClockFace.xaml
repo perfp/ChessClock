@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="ChessClock.ClockFace"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ChessClock="clr-namespace:ChessClock" mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="323" d:DesignWidth="353">
+    
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" DataContext="{Binding}">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.511*"/>
+    		<RowDefinition Height="0.489*"/>
+    	</Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.496*"/>
+    		<ColumnDefinition Width="0.504*"/>
+    	</Grid.ColumnDefinitions>
+    	<Ellipse Margin="7,9,9,7" Stroke="Black" Grid.RowSpan="2" Grid.ColumnSpan="2" d:IsHidden="True">
+    		<Ellipse.Fill>
+    			<RadialGradientBrush RadiusX="302.4" RadiusY="275.4" Center="168.5,153.5" GradientOrigin="168.5,153.5" MappingMode="Absolute">
+    				<GradientStop Color="#FF0E0491" Offset="0.366"/>
+    				<GradientStop Color="White" Offset="0.776"/>
+    			</RadialGradientBrush>
+    		</Ellipse.Fill>
+    	</Ellipse>
+    	<TextBlock Height="27" Margin="-11,21,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="Black" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Left" Width="25" d:IsHidden="True"/>
+    	<TextBlock Margin="0,0,21,-12" TextWrapping="Wrap" Text="15" Foreground="Black" HorizontalAlignment="Right" Width="25" Grid.Column="1" Height="27" VerticalAlignment="Bottom" d:IsHidden="True"/>
+    	<TextBlock Margin="-11,0,164,25" TextWrapping="Wrap" Text="30" Foreground="Black" Height="27" VerticalAlignment="Bottom" RenderTransformOrigin="0.45,0.556" Grid.Column="1" Grid.Row="1" d:IsHidden="True"/>
+    	<TextBlock Margin="18,0,0,-12" TextWrapping="Wrap" Text="45" Foreground="Black" RenderTransformOrigin="0.45,0.556" HorizontalAlignment="Left" Width="25" Height="27" VerticalAlignment="Bottom" d:IsHidden="True"/>
+    	<Rectangle HorizontalAlignment="Right" Margin="0,55,-8,3" Stroke="Black" Width="16" RenderTransformOrigin="0.5,1" Name="MinuteHand" RenderTransform="{Binding MinuteHandTransform}">
+            <Rectangle.Fill>
+    			<RadialGradientBrush RadiusX="302.4" RadiusY="275.4" Center="168.5,153.5" GradientOrigin="168.5,153.5" MappingMode="Absolute">
+    				<GradientStop Color="#FF0E0491" Offset="0.366"/>
+    				<GradientStop Color="Black" Offset="0.776"/>
+    			</RadialGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+        <TextBlock Grid.Column="1" Grid.Row="1" Height="39" HorizontalAlignment="Left" Margin="149,110,0,0" Name="angle" Text="{Binding Path=MinuteHandAngle}" VerticalAlignment="Top" Width="24" />
+        <Rectangle x:Name="SecondHand" HorizontalAlignment="Left" Margin="169.5,29.366,0,0.5" Stroke="Black" Width="4.879" RenderTransformOrigin="0,1" UseLayoutRounding="False" d:LayoutRounding="Auto" RenderTransform="{Binding SecondHandTransform}">
+            <Rectangle.Fill>
+        		<RadialGradientBrush RadiusX="302.4" RadiusY="275.4" Center="168.5,153.5" GradientOrigin="168.5,153.5" MappingMode="Absolute">
+        			<GradientStop Color="#FF0E0491" Offset="0.366"/>
+        			<GradientStop Color="Black" Offset="0.776"/>
+        		</RadialGradientBrush>
+        	</Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>
